@@ -62,6 +62,22 @@ public class Cliente {
         this.reservas = resrvas;
     }
 
+    /**
+     * Funcíon para registrar un cliente.
+     * @return
+     */
+    public boolean registrarCliente() {
+        return false;
+    }
+
+    /**
+     * Función para obtener información.
+     * @return
+     */
+    public String obtenerInformacion() {
+        return "";
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == this) return true;
@@ -87,6 +103,4 @@ public class Cliente {
             ", resrvas='" + getReservas() + "'" +
             "}";
     }
-
-    
 }

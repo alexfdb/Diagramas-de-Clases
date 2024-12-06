@@ -65,16 +65,28 @@ public class Habitacion {
         this.reservas = reservas;
     }
 
-    public boolean isDisponibilidad() {
-        return this.disponibilidad;
-    }
-
     public boolean getDisponibilidad() {
         return this.disponibilidad;
     }
 
     public void setDisponibilidad(boolean disponibilidad) {
         this.disponibilidad = disponibilidad;
+    }
+
+    /**
+     * Función para comprobar la disponibilidad.
+     * @return
+     */
+    public boolean comprobarDisponobilidad() {
+        return false;
+    }
+
+    /**
+     * Función para cambiar el estado.
+     * @return
+     */
+    public boolean cambiarEstado() {
+        return false;
     }
 
     @Override
@@ -101,8 +113,7 @@ public class Habitacion {
             ", tipoHabitacion='" + getTipoHabitacion() + "'" +
             ", precioNoche='" + getPrecioNoche() + "'" +
             ", reservas='" + getReservas() + "'" +
-            ", disponibilidad='" + isDisponibilidad() + "'" +
+            ", disponibilidad='" + getDisponibilidad() + "'" +
             "}";
     }
-
 }

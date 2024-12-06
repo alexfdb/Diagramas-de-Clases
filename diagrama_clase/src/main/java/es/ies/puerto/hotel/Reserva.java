@@ -77,6 +77,22 @@ public class Reserva {
         this.confirmacion = confirmacion;
     }
 
+    /**
+     * Función para calcular el costo de una reserva.
+     * @return
+     */
+    public float calcularCostoTotal() {
+        return 0.0f;
+    }
+
+    /**
+     * Función para confirmar una reserva.
+     * @return
+     */
+    public boolean confirmarReserva() {
+        return false;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == this) return true;
