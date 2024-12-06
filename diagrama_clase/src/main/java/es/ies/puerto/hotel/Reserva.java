@@ -1,21 +1,36 @@
 package es.ies.puerto.hotel;
 import java.util.Date;
 import java.util.Objects;
-
+/**
+ * @author alexfdb
+ * @version 1.0.0
+ */
 public class Reserva {
     private Date fechaEntrada;
     private Date fechaSalida;
     private Cliente cliente;
     private Habitacion habitacion;
+    private Boolean confirmacion;
 
-    public Reserva() {
-    }
+    /**
+     * Constructor por defecto.
+     */
+    public Reserva() {}
 
-    public Reserva(Date fechaEntrada, Date fechaSalida, Cliente cliente, Habitacion habitacion) {
+    /**
+     * Constructor general.
+     * @param fechaEntrada
+     * @param fechaSalida
+     * @param cliente
+     * @param habitacion
+     * @param confirmacion
+     */
+    public Reserva(Date fechaEntrada, Date fechaSalida, Cliente cliente, Habitacion habitacion, Boolean confirmacion) {
         this.fechaEntrada = fechaEntrada;
         this.fechaSalida = fechaSalida;
         this.cliente = cliente;
         this.habitacion = habitacion;
+        this.confirmacion = confirmacion;
     }
 
     public Date getFechaEntrada() {
@@ -50,40 +65,33 @@ public class Reserva {
         this.habitacion = habitacion;
     }
 
-    public Reserva fechaEntrada(Date fechaEntrada) {
-        setFechaEntrada(fechaEntrada);
-        return this;
+    public Boolean isConfirmacion() {
+        return this.confirmacion;
     }
 
-    public Reserva fechaSalida(Date fechaSalida) {
-        setFechaSalida(fechaSalida);
-        return this;
+    public Boolean getConfirmacion() {
+        return this.confirmacion;
     }
 
-    public Reserva cliente(Cliente cliente) {
-        setCliente(cliente);
-        return this;
-    }
-
-    public Reserva habitacion(Habitacion habitacion) {
-        setHabitacion(habitacion);
-        return this;
+    public void setConfirmacion(Boolean confirmacion) {
+        this.confirmacion = confirmacion;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (o == this)
-            return true;
-        if (!(o instanceof Reserva)) {
-            return false;
-        }
+        if (o == this) return true;
+        if (!(o instanceof Reserva)) return false;
         Reserva reserva = (Reserva) o;
-        return Objects.equals(fechaEntrada, reserva.fechaEntrada) && Objects.equals(fechaSalida, reserva.fechaSalida) && Objects.equals(cliente, reserva.cliente) && Objects.equals(habitacion, reserva.habitacion);
+        return Objects.equals(fechaEntrada, reserva.fechaEntrada) && 
+               Objects.equals(fechaSalida, reserva.fechaSalida) && 
+               Objects.equals(cliente, reserva.cliente) && 
+               Objects.equals(habitacion, reserva.habitacion) && 
+               Objects.equals(confirmacion, reserva.confirmacion);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(fechaEntrada, fechaSalida, cliente, habitacion);
+        return Objects.hash(fechaEntrada, fechaSalida, cliente, habitacion, confirmacion);
     }
 
     @Override
@@ -93,7 +101,7 @@ public class Reserva {
             ", fechaSalida='" + getFechaSalida() + "'" +
             ", cliente='" + getCliente() + "'" +
             ", habitacion='" + getHabitacion() + "'" +
+            ", confirmacion='" + isConfirmacion() + "'" +
             "}";
     }
-    
 }

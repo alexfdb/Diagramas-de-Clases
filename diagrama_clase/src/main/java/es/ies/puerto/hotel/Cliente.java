@@ -1,20 +1,33 @@
 package es.ies.puerto.hotel;
 import java.util.List;
 import java.util.Objects;
-
+/**
+ * @author alexfdb
+ * @version 1.0.0
+ */
 public class Cliente {
     private String nombre;
     private int numeroContacto;
     private String correoElectronico;
-    private List<Reserva> resrvas;
+    private List<Reserva> reservas;
 
-    public Cliente() {
-    }
+    /**
+     * Constructor por defecto.
+     */
+    public Cliente() {}
 
-    public Cliente(String nombre, int numeroContacto, String correoElectronico) {
+    /**
+     * Constructor general.
+     * @param nombre
+     * @param numeroContacto
+     * @param correoElectronico
+     * @param resrvas
+     */
+    public Cliente(String nombre, int numeroContacto, String correoElectronico, List<Reserva> resrvas) {
         this.nombre = nombre;
         this.numeroContacto = numeroContacto;
         this.correoElectronico = correoElectronico;
+        this.reservas = resrvas;
     }
 
     public String getNombre() {
@@ -41,35 +54,28 @@ public class Cliente {
         this.correoElectronico = correoElectronico;
     }
 
-    public Cliente nombre(String nombre) {
-        setNombre(nombre);
-        return this;
+    public List<Reserva> getReservas() {
+        return this.reservas;
     }
 
-    public Cliente numeroContacto(int numeroContacto) {
-        setNumeroContacto(numeroContacto);
-        return this;
-    }
-
-    public Cliente correoElectronico(String correoElectronico) {
-        setCorreoElectronico(correoElectronico);
-        return this;
+    public void setReservas(List<Reserva> resrvas) {
+        this.reservas = resrvas;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (o == this)
-            return true;
-        if (!(o instanceof Cliente)) {
-            return false;
-        }
+        if (o == this) return true;
+        if (!(o instanceof Cliente)) return false;
         Cliente cliente = (Cliente) o;
-        return Objects.equals(nombre, cliente.nombre) && numeroContacto == cliente.numeroContacto && Objects.equals(correoElectronico, cliente.correoElectronico);
+        return Objects.equals(nombre, cliente.nombre) && 
+                              numeroContacto == cliente.numeroContacto && 
+               Objects.equals(correoElectronico, cliente.correoElectronico) && 
+               Objects.equals(reservas, cliente.reservas);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nombre, numeroContacto, correoElectronico);
+        return Objects.hash(nombre, numeroContacto, correoElectronico, reservas);
     }
 
     @Override
@@ -78,7 +84,9 @@ public class Cliente {
             " nombre='" + getNombre() + "'" +
             ", numeroContacto='" + getNumeroContacto() + "'" +
             ", correoElectronico='" + getCorreoElectronico() + "'" +
+            ", resrvas='" + getReservas() + "'" +
             "}";
     }
+
     
 }

@@ -1,20 +1,36 @@
 package es.ies.puerto.hotel;
 import java.util.List;
 import java.util.Objects;
-
+/**
+ * @author alexfdb
+ * @version 1.0.0
+ */
 public class Habitacion {
     private int numeroHabitacion;
     private String tipoHabitacion;
     private float precioNoche;
     private List<Reserva> reservas;
+    private boolean disponibilidad;
 
-    public Habitacion() {
-    }
+    /**
+     * Constructor vacio.
+     */
+    public Habitacion() {}
 
-    public Habitacion(int numeroHabitacion, String tipoHabitacion, float precioNoche) {
+    /**
+     * Constructor general.
+     * @param numeroHabitacion
+     * @param tipoHabitacion
+     * @param precioNoche
+     * @param reservas
+     * @param disponibilidad
+     */
+    public Habitacion(int numeroHabitacion, String tipoHabitacion, float precioNoche, List<Reserva> reservas, boolean disponibilidad) {
         this.numeroHabitacion = numeroHabitacion;
         this.tipoHabitacion = tipoHabitacion;
         this.precioNoche = precioNoche;
+        this.reservas = reservas;
+        this.disponibilidad = disponibilidad;
     }
 
     public int getNumeroHabitacion() {
@@ -41,35 +57,41 @@ public class Habitacion {
         this.precioNoche = precioNoche;
     }
 
-    public Habitacion numeroHabitacion(int numeroHabitacion) {
-        setNumeroHabitacion(numeroHabitacion);
-        return this;
+    public List<Reserva> getReservas() {
+        return this.reservas;
     }
 
-    public Habitacion tipoHabitacion(String tipoHabitacion) {
-        setTipoHabitacion(tipoHabitacion);
-        return this;
+    public void setReservas(List<Reserva> reservas) {
+        this.reservas = reservas;
     }
 
-    public Habitacion precioNoche(float precioNoche) {
-        setPrecioNoche(precioNoche);
-        return this;
+    public boolean isDisponibilidad() {
+        return this.disponibilidad;
+    }
+
+    public boolean getDisponibilidad() {
+        return this.disponibilidad;
+    }
+
+    public void setDisponibilidad(boolean disponibilidad) {
+        this.disponibilidad = disponibilidad;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (o == this)
-            return true;
-        if (!(o instanceof Habitacion)) {
-            return false;
-        }
+        if (o == this) return true;
+        if (!(o instanceof Habitacion)) return false;
         Habitacion habitacion = (Habitacion) o;
-        return numeroHabitacion == habitacion.numeroHabitacion && Objects.equals(tipoHabitacion, habitacion.tipoHabitacion) && precioNoche == habitacion.precioNoche;
+        return numeroHabitacion == habitacion.numeroHabitacion && 
+        Objects.equals(tipoHabitacion, habitacion.tipoHabitacion) && 
+                       precioNoche == habitacion.precioNoche && 
+        Objects.equals(reservas, habitacion.reservas) && 
+                       disponibilidad == habitacion.disponibilidad;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(numeroHabitacion, tipoHabitacion, precioNoche);
+        return Objects.hash(numeroHabitacion, tipoHabitacion, precioNoche, reservas, disponibilidad);
     }
 
     @Override
@@ -78,7 +100,9 @@ public class Habitacion {
             " numeroHabitacion='" + getNumeroHabitacion() + "'" +
             ", tipoHabitacion='" + getTipoHabitacion() + "'" +
             ", precioNoche='" + getPrecioNoche() + "'" +
+            ", reservas='" + getReservas() + "'" +
+            ", disponibilidad='" + isDisponibilidad() + "'" +
             "}";
     }
-    
+
 }

@@ -2,14 +2,14 @@
 
 ## Ejercicio 1: Sistema de Reservas de Hoteles
 
-<img src="SistemaReservasHoteles.drawio.png"> 
+<img src="img\sistema-hoteles.drawio.png"> 
 
 ## Ejercicio 2: Sistema de Gestión de Bibliotecas
 
 ### Sistema A
 
-<img src="SistemaGestionBiblioteca.drawio.png"> 
+<img src="img\sistema-biblioteca.drawio.png"> 
 
 ### Sistema B
 
-<img src="sistemaGestionBibliotecaActualizado.drawio.png">
+<img src="img\sistema-biblioteca-actualizado.drawio.png">
